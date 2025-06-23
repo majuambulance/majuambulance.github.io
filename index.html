@@ -22,9 +22,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
     }
     .logo img {
       height: 50px;
+      cursor: pointer;
     }
     nav ul {
       list-style: none;
@@ -45,7 +47,7 @@
       text-decoration: none;
     }
     .hero {
-      background-image: url('ambulance.jpg'); /* Replace with actual image */
+      background-image: url('hero-image.jpg'); /* Replace with actual high-quality image */
       background-size: cover;
       background-position: center;
       height: 500px;
@@ -54,8 +56,21 @@
       align-items: center;
       text-align: center;
       color: #fff;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
     .hero-content {
+      position: relative;
+      z-index: 2;
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       border-radius: 10px;
@@ -94,6 +109,17 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .service:hover {
+      transform: translateY(-10px);
+    }
+    .service img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
     .service i {
       font-size: 2em;
@@ -133,6 +159,9 @@
     .contact-info {
       margin-top: 20px;
     }
+    .contact-info p {
+      margin: 5px 0;
+    }
     .follow {
       padding: 50px 20px;
       text-align: center;
@@ -142,12 +171,40 @@
       color: #ff4d6d;
       text-decoration: none;
       font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+    }
+    .social-links i {
+      margin-right: 5px;
+    }
+    .whatsapp-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: #fff;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: transform 0.3s;
+    }
+    .whatsapp-cta:hover {
+      transform: scale(1.1);
     }
     footer {
       background-color: #222;
       color: #fff;
       text-align: center;
       padding: 20px;
+    }
+    .footer-links {
+      margin-top: 10px;
+    }
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
     }
     @media (max-width: 768px) {
       header {
@@ -167,6 +224,9 @@
       .hero p {
         font-size: 1.2em;
       }
+      .service img {
+        height: 100px;
+      }
     }
   </style>
 </head>
@@ -174,7 +234,7 @@
 
   <!-- Header -->
   <header>
-    <div class="logo">
+    <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
       <img src="logo.png" alt="Maju Ambulance Services Logo"> <!-- Replace with actual logo path -->
     </div>
     <nav>
@@ -203,37 +263,44 @@
   <section id="services" class="services" data-aos="fade-up">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div class="service">
+      <div class="service" data-aos="zoom-in">
+        <img src="ambulance-service.jpg" alt="Emergency Ambulance Service"> <!-- Replace with actual image -->
         <i class="fas fa-ambulance"></i>
         <h3>Emergency Ambulance</h3>
         <p>Fast and reliable emergency ambulance services.</p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="zoom-in" data-aos-delay="100">
+        <img src="patient-transfer.jpg" alt="Patient Transfer Service"> <!-- Replace with actual image -->
         <i class="fas fa-hospital"></i>
         <h3>Patient Transfer</h3>
         <p>Safe patient transfer for discharge or appointments.</p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="zoom-in" data-aos-delay="200">
+        <img src="wound-care.jpg" alt="Wound Care Service"> <!-- Replace with actual image -->
         <i class="fas fa-band-aid"></i>
         <h3>Wound Care</h3>
         <p>Expert care for diabetic wounds, bedsores, and more.</p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="zoom-in" data-aos-delay="300">
+        <img src="medical-procedures.jpg" alt="Medical Procedures Service"> <!-- Replace with actual image -->
         <i class="fas fa-procedures"></i>
         <h3>Medical Procedures</h3>
         <p>Procedures like CBD, Ryles Tube, and suction.</p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="zoom-in" data-aos-delay="400">
+        <img src="equipment-rental.jpg" alt="Equipment Rental Service"> <!-- Replace with actual image -->
         <i class="fas fa-wheelchair"></i>
         <h3>Equipment Rental</h3>
         <p>Rent or purchase medical equipment.</p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="zoom-in" data-aos-delay="500">
+        <img src="home-nursing.jpg" alt="Home Nursing Service"> <!-- Replace with actual image -->
         <i class="fas fa-user-nurse"></i>
         <h3>Home Nursing</h3>
         <p>Professional home nursing and doctor visits.</p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="zoom-in" data-aos-delay="600">
+        <img src="event-medical.jpg" alt="Event Medical Team Service"> <!-- Replace with actual image -->
         <i class="fas fa-users"></i>
         <h3>Event Medical Team</h3>
         <p>Medical support for events and functions.</p>
@@ -270,7 +337,7 @@
     <form action="#" method="post">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
       <button type="submit" class="btn">Send Message</button>
     </form>
     <div class="contact-info">
@@ -284,16 +351,26 @@
   <section id="follow" class="follow" data-aos="fade-up">
     <h2>Follow Us</h2>
     <div class="social-links">
-      <a href="https://www.facebook.com/people/Maju-Ambulance-Services/100094036345521/?mibextid=ZbWKwL" role="listitem" aria-label="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="https://www.instagram.com/majuambulanceservices?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" role="listitem" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.tiktok.com/@maju.ambulance?_t=ZS-8xRCBUf7u7e&_r=1" role="listitem" aria-label="TikTok" target="_blank" rel="noopener noreferrer">TikTok</a>
-      <a href="https://wa.me/60166574651" role="listitem" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://www.facebook.com/people/Maju-Ambulance-Services/100094036345521/?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://www.instagram.com/majuambulanceservices?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://www.tiktok.com/@maju.ambulance?_t=ZS-8xRCBUf7u7e&_r=1" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
     </div>
   </section>
 
+  <!-- WhatsApp CTA Button -->
+  <a href="https://wa.me/60166574651" class="whatsapp-cta" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+  </a>
+
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Maju Ambulance Services. All rights reserved.</p>
+    <p>© 2025 Maju Ambulance Services. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+      <a href="#follow">Follow Us</a>
+    </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
