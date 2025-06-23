@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maju Ambulance Services</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background: #fff;
       color: #333;
+      font-size: 16px;
     }
     header {
       background: linear-gradient(to right, #ff4d6d, #ffb3c1);
@@ -25,6 +28,28 @@
       font-size: 1.2em;
       margin-top: 10px;
     }
+    .call-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #ff4d6d;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
     .section {
       padding: 40px 20px;
       max-width: 1000px;
@@ -34,19 +59,30 @@
       color: #ff4d6d;
       margin-bottom: 10px;
     }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .service-card i {
+      font-size: 2em;
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      margin: 0;
+    }
     ul {
       list-style: none;
       padding: 0;
       line-height: 1.8;
-    }
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .grid > div {
-      flex: 1;
-      min-width: 280px;
     }
     footer {
       background: #222;
@@ -60,7 +96,7 @@
     }
     .social-icons a {
       margin: 0 10px;
-      color: white;
+      color: #ff4d6d;
       text-decoration: none;
       font-weight: bold;
     }
@@ -74,6 +110,23 @@
       text-decoration: none;
       font-weight: bold;
     }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      .section h2 {
+        font-size: 1.5em;
+      }
+      .service-card {
+        padding: 15px;
+      }
+      .service-card i {
+        font-size: 1.5em;
+      }
+      iframe {
+        height: 300px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -81,40 +134,58 @@
   <header>
     <h1>Maju Ambulance Services</h1>
     <p>Your trusted 24/7 emergency and home care provider in Ipoh, Batu Gajah & Simpang Pulai</p>
+    <a href="tel:0166574651" class="call-button">Call Now for Emergency</a>
   </header>
 
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>Our Services / Perkhidmatan Kami</h2>
-    <div class="grid">
-      <div>
-        <ul>
-          <li>🚑 Emergency Ambulance</li>
-          <li>🚗 Patient Transfer / Discharge / Appointments</li>
-          <li>🩹 Wound Care – Diabetic, Bedsore & more</li>
-          <li>🧪 Medical Procedure – CBD, Ryles Tube, Suction</li>
-        </ul>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-ambulance"></i>
+        <p>Emergency Ambulance</p>
       </div>
-      <div>
-        <ul>
-          <li>🛒 Medical Equipment Rental / Purchase</li>
-          <li>🏠 Home Nursing & Doctor Visits</li>
-          <li>🎪 Medical Team for Events / Functions</li>
-        </ul>
+      <div class="service-card">
+        <i class="fas fa-shuttle-van"></i>
+        <p>Patient Transfer / Discharge / Appointments</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-band-aid"></i>
+        <p>Wound Care – Diabetic, Bedsore & more</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-procedures"></i>
+        <p>Medical Procedure – CBD, Ryles Tube, Suction</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-wheelchair"></i>
+        <p>Medical Equipment Rental / Purchase</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-user-nurse"></i>
+        <p>Home Nursing & Doctor Visits</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-first-aid"></i>
+        <p>Medical Team for Events / Functions</p>
       </div>
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>Lokasi Kami</h2>
-    <p>Kami menyediakan perkhidmatan di kawasan berikut:</p>
+    <h3>Kawasan Perkhidmatan</h3>
     <ul>
       <li>📍 Ipoh</li>
       <li>📍 Batu Gajah</li>
       <li>📍 Simpang Pulai</li>
     </ul>
+    <h3>Alamat Pejabat</h3>
+    <p>3, Persiaran Bercham Utara 9, Taman Ramai, 31400 Ipoh, Perak</p>
+    <!-- Replace with actual Google Maps embed code -->
+    <iframe src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE_HERE" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </div>
 
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>Hubungi Kami 24/7</h2>
     <div class="contact">
       <p>📞 <strong>Emergency Contact:</strong> <a href="tel:0166574651">016-6574651</a></p>
@@ -123,7 +194,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>Ikuti Kami</h2>
     <div class="social-icons">
       <a href="#">Facebook</a>
@@ -135,8 +206,13 @@
   </div>
 
   <footer>
-    &copy; 2025 Maju Ambulance Services. All rights reserved.
+    © 2025 Maju Ambulance Services. All rights reserved.
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 </body>
 </html>
