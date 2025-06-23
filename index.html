@@ -1,406 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maju Ambulance Services offers 24/7 emergency and home care in Ipoh, Batu Gajah, and Simpang Pulai. Call us for ambulance, wound care, and more!">
   <title>Maju Ambulance Services</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
-    /* Reset and base */
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
       color: #333;
-      line-height: 1.6;
-      font-size: 16px;
-      scroll-behavior: smooth;
     }
-
-    /* NAVIGATION */
-    nav {
+    header {
+      background-color: #ff4d6d;
+      color: #fff;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #ff4d6d;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     }
-    nav .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    nav .logo img {
+    .logo img {
       height: 50px;
-      width: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    nav .logo h1 {
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 700;
-      user-select: none;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 20px;
     }
-    nav ul li a {
-      color: white;
+    nav a {
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 8px 10px;
-      border-radius: 5px;
-      transition: background 0.3s ease;
+      font-weight: bold;
     }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      background: #ff2d55;
-      outline: none;
+    .emergency-contact p {
+      margin: 0;
+      font-size: 1.2em;
     }
-
-    /* Call Button on Nav */
-    nav .call-btn {
-      background: #fff;
-      color: #ff4d6d;
+    .emergency-contact a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .hero {
+      background-image: url('ambulance.jpg'); /* Replace with actual image */
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-content {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+    .btn {
+      background-color: #ff4d6d;
+      color: #fff;
       padding: 10px 20px;
-      font-weight: 700;
-      border-radius: 30px;
-      box-shadow: 0 2px 6px rgba(255,77,109,0.4);
       text-decoration: none;
-      transition: background 0.3s ease, color 0.3s ease;
-      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
     }
-    nav .call-btn:hover,
-    nav .call-btn:focus {
-      background: #ff2d55;
-      color: #fff;
-      outline: none;
-      box-shadow: 0 4px 12px rgba(255,45,85,0.6);
+    .btn:hover {
+      background-color: #e0435d;
     }
-
-    /* Google Translate */
-    #google_translate_element {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 9999;
-      background: #fff;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      padding: 5px 10px;
-      font-size: 0.9rem;
-    }
-
-    /* HEADER HERO */
-    header.hero {
-      background: linear-gradient(135deg, #ff4d6d, #ffb3c1);
-      color: #fff;
-      padding: 80px 20px 60px;
+    .services {
+      padding: 50px 20px;
       text-align: center;
     }
-    header.hero h2 {
-      font-size: 2.75rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
-    }
-    header.hero p {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-    }
-    header.hero a.cta-btn {
-      background: #fff;
-      color: #ff4d6d;
-      font-weight: 700;
-      padding: 18px 40px;
-      border-radius: 50px;
-      font-size: 1.25rem;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(255,77,109,0.5);
-      transition: background 0.3s ease, color 0.3s ease;
-      animation: pulse 2.5s infinite;
-      display: inline-block;
-    }
-    header.hero a.cta-btn:hover,
-    header.hero a.cta-btn:focus {
-      background: #ff2d55;
-      color: #fff;
-      outline: none;
-      box-shadow: 0 6px 20px rgba(255,45,85,0.7);
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    /* MAIN CONTENT SECTIONS */
-    main {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    section {
-      margin-bottom: 60px;
-    }
-    section h3 {
-      color: #ff4d6d;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #ff4d6d;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    /* SERVICES GRID */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
     }
-    .service-card {
-      background: #fafafa;
-      border-radius: 12px;
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .service {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    .service-card:hover,
-    .service-card:focus-within {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(255,77,109,0.25);
-      outline: none;
-    }
-    .service-card i {
-      font-size: 3rem;
+    .service i {
+      font-size: 2em;
       color: #ff4d6d;
-      margin-bottom: 15px;
-    }
-    .service-card p {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #555;
-    }
-
-    /* LOCATION */
-    .location-list {
-      list-style: none;
-      padding-left: 0;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-    .location-list li {
       margin-bottom: 10px;
-      padding-left: 25px;
-      position: relative;
     }
-    .location-list li::before {
-      content: "📍";
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 1.2rem;
-    }
-    .address {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 20px;
-      max-width: 600px;
-    }
-
-    /* CONTACT */
-    .contact p {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
-    .contact a {
-      color: #ff4d6d;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .contact a:hover,
-    .contact a:focus {
-      color: #ff2d55;
-      outline: none;
-    }
-    .whatsapp-button {
-      background: #25d366;
-      color: white;
-      font-weight: 700;
-      padding: 14px 30px;
-      border-radius: 40px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(37,211,102,0.5);
-      transition: background 0.3s ease;
-    }
-    .whatsapp-button:hover,
-    .whatsapp-button:focus {
-      background: #1da851;
-      outline: none;
-      box-shadow: 0 6px 20px rgba(29,168,81,0.7);
-    }
-
-    /* SOCIAL ICONS */
-    .social-icons {
-      margin-top: 10px;
-    }
-    .social-icons a {
-      display: inline-block;
-      margin-right: 20px;
-      color: #ff4d6d;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.1rem;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-    .social-icons a:hover,
-    .social-icons a:focus {
-      border-color: #ff2d55;
-      outline: none;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #222;
-      color: white;
+    .location {
+      padding: 50px 20px;
       text-align: center;
-      padding: 20px 10px;
-      font-size: 0.95rem;
-      user-select: none;
     }
-
-    /* Responsive */
+    .location ul {
+      list-style: none;
+      padding: 0;
+    }
+    .map {
+      margin-top: 20px;
+    }
+    .contact {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .contact input, .contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact .btn {
+      align-self: center;
+    }
+    .contact-info {
+      margin-top: 20px;
+    }
+    .follow {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .social-links a {
+      margin: 0 10px;
+      color: #ff4d6d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       nav ul {
-        gap: 15px;
-      }
-      header.hero h2 {
-        font-size: 2rem;
-      }
-      .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      }
-      .service-card i {
-        font-size: 2.5rem;
-      }
-    }
-    @media (max-width: 480px) {
-      nav {
         flex-direction: column;
         gap: 10px;
       }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+      .hero {
+        height: 300px;
       }
-      nav .call-btn {
-        padding: 12px 25px;
-        font-size: 1rem;
+      .hero h1 {
+        font-size: 2em;
       }
-      header.hero h2 {
-        font-size: 1.6rem;
-      }
-      header.hero p {
-        font-size: 1rem;
+      .hero p {
+        font-size: 1.2em;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Google Translate Dropdown -->
-  <div id="google_translate_element"></div>
 
-  <!-- Navigation Bar -->
-  <nav role="navigation" aria-label="Main navigation">
+  <!-- Header -->
+  <header>
     <div class="logo">
-      <img src="/dashboard/MajuAmbulance/maju-ambulance/public/images/logo.png" alt="Maju Ambulance Services Logo" />
-      <h1>Maju Ambulance</h1>
+      <img src="logo.png" alt="Maju Ambulance Services Logo"> <!-- Replace with actual logo path -->
     </div>
-    <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#location">Location</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#follow-us">Follow Us</a></li>
-    </ul>
-    <a href="tel:0166574651" class="call-btn" aria-label="Call Maju Ambulance Services">Call Now</a>
-  </nav>
-
-  <!-- Hero Header -->
-  <header class="hero" role="banner">
-    <h2>Your Trusted 24/7 Emergency & Home Care Provider in Ipoh, Batu Gajah & Simpang Pulai</h2>
-    <p>Reliable ambulance, patient transfer, wound care, home nursing, medical equipment rental, and more.</p>
-    <a href="tel:0166574651" class="cta-btn" aria-label="Call Maju Ambulance Services Now">Call for Emergency</a>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#follow">Follow Us</a></li>
+      </ul>
+    </nav>
+    <div class="emergency-contact">
+      <p>Emergency: <a href="tel:0166574651">016-6574651</a></p>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Services Section -->
-    <section id="services" aria-labelledby="services-title" data-aos="fade-up">
-      <h3 id="services-title">Our Services</h3>
-      <div class="services-grid">
-        <article class="service-card" tabindex="0">
-          <i class="fas fa-ambulance" aria-hidden="true"></i>
-          <p>Emergency Ambulance</p>
-        </article>
-        <article class="service-card" tabindex="0">
-          <i class="fas fa-shuttle-van" aria-hidden="true"></i>
-          <p>Patient Transfer / Discharge / Appointments</p>
-        </article>
-        <article class="service-card" tabindex="0">
-          <i class="fas fa-band-aid" aria-hidden="true"></i>
-          <p>Wound Care – Diabetic, Bedsore & More</p>
-        </article>
-        <article class="service-card" tabindex="0">
-          <i class="fas fa-procedures" aria-hidden="true"></i>
-          <p>Medical Procedures – CBD, Ryles Tube, Suction</p>
-        </article>
-        <article class="service-card" tabindex="0">
-          <i class="fas fa-wheelchair" aria-hidden="true"></i>
-          <p>Medical Equipment Rental / Purchase</p>
-        </article>
-        <article class="service-card" tabindex="0">
-          <i class="fas fa-user-nurse" aria-hidden="true"></i>
-          <p>Home Nursing & Doctor Visits</p>
-        </article>
-        <article class="service-card" tabindex="0">
-          <i class="fas fa-first-aid" aria-hidden="true"></i>
-          <p>Medical Team for Events / Functions</p>
-        </article>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-in">
+    <div class="hero-content">
+      <h1>Maju Ambulance Services</h1>
+      <p>Every second counts</p>
+      <a href="tel:0166574651" class="btn">Call for Emergency</a>
+    </div>
+  </section>
 
-    <!-- Location Section -->
-    <section id="location" aria-labelledby="location-title" data-aos="fade-up">
-      <h3 id="location-title">Our Locations</h3>
-      <ul class="location-list">
-        <li>Ipoh</li>
-        <li>Batu Gajah</li>
-        <li>Simpang Pulai</li>
-      </ul>
-      <p class="address" aria-label="Office Address">
-        3, Persiaran Bercham Utara 9, Taman Ramai, 31400 Ipoh, Perak, Malaysia
-      </p>
+  <!-- Services Section -->
+  <section id="services" class="services" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service">
+        <i class="fas fa-ambulance"></i>
+        <h3>Emergency Ambulance</h3>
+        <p>Fast and reliable emergency ambulance services.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-hospital"></i>
+        <h3>Patient Transfer</h3>
+        <p>Safe patient transfer for discharge or appointments.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-band-aid"></i>
+        <h3>Wound Care</h3>
+        <p>Expert care for diabetic wounds, bedsores, and more.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-procedures"></i>
+        <h3>Medical Procedures</h3>
+        <p>Procedures like CBD, Ryles Tube, and suction.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-wheelchair"></i>
+        <h3>Equipment Rental</h3>
+        <p>Rent or purchase medical equipment.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-user-nurse"></i>
+        <h3>Home Nursing</h3>
+        <p>Professional home nursing and doctor visits.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-users"></i>
+        <h3>Event Medical Team</h3>
+        <p>Medical support for events and functions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="location" data-aos="fade-up">
+    <h2>Our Location</h2>
+    <p>We serve the following areas:</p>
+    <ul>
+      <li>Ipoh</li>
+      <li>Batu Gajah</li>
+      <li>Simpang Pulai</li>
+    </ul>
+    <div class="map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.713990954958!2d101.12903191034479!3d4.645018095310331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xcc99abe95be2491%3A0xf387a553366ed865!2sMaju%20Ambulance%20Services%20Ipoh!5e0!3m2!1sen!2smy!4v1750657670057!5m2!1sen!2smy"
         width="100%"
@@ -411,64 +261,45 @@
         referrerpolicy="no-referrer-when-downgrade"
         aria-label="Google Maps location of Maju Ambulance Services"
       ></iframe>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" aria-labelledby="contact-title" data-aos="fade-up">
-      <h3 id="contact-title">Contact Us 24/7</h3>
-      <div class="contact">
-        <p>📞 <strong>Emergency Contact:</strong> <a href="tel:0166574651">016-6574651</a></p>
-        <p>📧 <strong>Email:</strong> <a href="mailto:majumedicareenterprise@gmail.com">majumedicareenterprise@gmail.com</a></p>
-        <a
-          class="whatsapp-button"
-          href="https://wa.me/60166574651"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat with Maju Ambulance Services on WhatsApp"
-          >💬 WhatsApp Now</a
-        >
-      </div>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact" class="contact" data-aos="fade-up">
+    <h2>Contact Us 24/7</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <div class="contact-info">
+      <p><i class="fas fa-phone"></i> 016-6574651</p>
+      <p><i class="fas fa-envelope"></i> majumedicareenterprise@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> 3, Persiaran Bercham Utara 9, Taman Ramai, 31400 Ipoh, Perak, Malaysia</p>
+    </div>
+  </section>
 
-    <!-- Social Follow Section -->
-    <section id="follow-us" aria-labelledby="follow-title" data-aos="fade-up">
-      <h3 id="follow-title">Follow Us</h3>
-      <div class="social-icons" role="list">
-        <a href="#" role="listitem" aria-label="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="#" role="listitem" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#" role="listitem" aria-label="TikTok" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://wa.me/60166574651" role="listitem" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      </div>
-      <p style="margin-top: 12px; font-style: italic; color: #777;">
-        (Links can be updated anytime)
-      </p>
-    </section>
-  </main>
+  <!-- Follow Us Section -->
+  <section id="follow" class="follow" data-aos="fade-up">
+    <h2>Follow Us</h2>
+    <div class="social-links">
+      <a href="https://www.facebook.com/people/Maju-Ambulance-Services/100094036345521/?mibextid=ZbWKwL" role="listitem" aria-label="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com/majuambulanceservices?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" role="listitem" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@maju.ambulance?_t=ZS-8xRCBUf7u7e&_r=1" role="listitem" aria-label="TikTok" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://wa.me/60166574651" role="listitem" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Maju Ambulance Services. All rights reserved.
+    <p>&copy; 2025 Maju Ambulance Services. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: "en,ms,zh-CN,ta",
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        },
-        "google_translate_element"
-      );
-    }
   </script>
-  <script
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    async
-  ></script>
+
 </body>
 </html>
